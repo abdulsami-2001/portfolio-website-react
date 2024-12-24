@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './ContactStyles.module.css';
+import { useTheme } from '../../common/ThemeContext';
 
 function Contact() {
+  const { theme } = useTheme();
   const [result, setResult] = React.useState("");
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -64,7 +66,7 @@ function Contact() {
             placeholder="Message"
             required></textarea>
         </div>
-        <span>{result}</span>
+        <span style={{color: theme == "dark" ? 'white' : 'black'}}>{result}</span>
         <input className="hover btn" type="submit" value="Submit" />
       </form>
     </section>
